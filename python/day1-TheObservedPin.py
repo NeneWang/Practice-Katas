@@ -1,3 +1,5 @@
+## KATA: https://www.codewars.com/kata/5263c6999e0f40dee200059d/solutions/python
+
 def get_pins(observed):
     lengthObserved = len(observed)
     pinsLists = []
@@ -58,4 +60,31 @@ def getDiff(value, add):
         result = 0
     return str(result)
 
-print(get_pins("0"))
+adjancents = {  '1': ['2', '4'],
+  '2': ['1', '5', '3'],
+  '3': ['2', '6'],
+  '4': ['1', '5', '7'],
+  '5': ['2', '4', '6', '8'],
+  '6': ['3', '5', '9'],
+  '7': ['4', '8'],
+  '8': ['5', '7', '9', '0'],
+  '9': ['6', '8'],
+  '0': ['8'],
+    }
+
+
+##print(get_pins("0"))
+def me_playing_around():
+    return [a+b for a in range(2) for b in range(4)]
+
+
+def get_pins_3(obs):
+    if(len(obs )<=1):
+        return adjancents[obs[0]]+[obs[0]]
+    return [a+b for a in adjancents[obs[0]]+[obs[0]] for b in get_pins_3(obs[1:] ) ]
+
+
+##print(get_pins_2("03"))
+print(me_playing_around())
+print(get_pins_3("03"))
+print(get_pins("03"))
