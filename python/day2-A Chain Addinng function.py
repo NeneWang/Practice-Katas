@@ -14,5 +14,12 @@ class add(int):
         return add(self+value)
     
 
+class addTwo(int):
+    def __call__(self, value):
+        return addTwo(self+value+2)
+
     
 print(add(1)(3)(4))
+
+##Adds two for each calls? - yes
+print(addTwo(1)(3)(4))
