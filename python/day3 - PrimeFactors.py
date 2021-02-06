@@ -5,7 +5,7 @@ Created on Sat Feb  6 11:26:47 2021
 @author: wangn
 """
 
-import math, sympy
+import sympy
 
 ##https://www.codewars.com/kata/54d512e62a5e54c96200019e/train/python
 
@@ -19,7 +19,7 @@ def prime_factors(n):
     while(n>1):
         while(n%primes[pi] == 0):
             dict_composition[primes[pi]] = dict_composition.get(primes[pi], 0) +1 
-            n=math.floor(n/primes[pi])
+            n=n/primes[pi]
         pi+=1
         
     text = ""
@@ -31,6 +31,13 @@ def prime_factors(n):
     
 
     
+
+##print(json.dumps(prime_factors(18)))
+##print(prime_factors(18))
+print(prime_factors(7775460))
+        
+
+
 def get_primes_under(max):
     primeList = []
     thisNCount = 0
@@ -47,8 +54,3 @@ def get_primes_under(max):
         
     return primeList
 
-
-##print(json.dumps(prime_factors(18)))
-##print(prime_factors(18))
-print(prime_factors(7775460))
-        
