@@ -77,14 +77,12 @@ adjancents = {  '1': ['2', '4'],
 def me_playing_around():
     return [a+b for a in range(2) for b in range(4)]
 
-
-def get_pins_3(obs):
-    if(len(obs )<=1):
-        return adjancents[obs[0]]+[obs[0]]
-    return [a+b for a in adjancents[obs[0]]+[obs[0]] for b in get_pins_3(obs[1:] ) ]
-
+def get_pins_4(obs):
+    if(len(obs) == 1):
+        return adjancents[obs[0]] + [obs[0]]
+    return [a + b for a in adjancents[obs[0]] + [obs[0]] for b in get_pins_4(obs[1:]) ]
 
 ##print(get_pins_2("03"))
 print(me_playing_around())
-print(get_pins_3("03"))
+print(get_pins_4("03"))
 print(get_pins("03"))
