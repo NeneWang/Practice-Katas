@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    console.log(solution(10));
+    //Rhino 1.7.7.1
+    function solution(number) {
+
+        var maxMult = new Array;
+        var inputInteger = new Array;
+
+        inputInteger.n3 = 3; inputInteger.n5 = 5;
+
+        maxMult.n3 = getNumberBelow(inputInteger.n3, number);
+        maxMult.n5 = getNumberBelow(inputInteger.n5, number);
+
+        console.log(`max mult: ${maxMult.n3}`);
+
+        answer =  getSumOfCompound(inputInteger.n3, 0, maxMult.n3) + getSumOfCompound(inputInteger.n5, 0, maxMult.n5);
+        return answer;
+
+    }
+
+
+    function getNumberBelow(target, maxTarget) {
+        var maximumMultiplier = 0;
+        while (target * (maximumMultiplier+1) < maxTarget) {
+            maximumMultiplier++;
+        }
+        return maximumMultiplier;
+    }
+
+    function getSumOfCompound(baseN, startExponent, maxExponent) {
+
+        // It should start with 0
+        startExponent = startExponent + 1;
+        if (startExponent > maxExponent) {
+            return 0;
+        }
+
+        console.log(`Add this compound: ${baseN * startExponent }`);
+        return  parseInt(baseN * startExponent + getSumOfCompound(baseN, startExponent, maxExponent));
+
+    }
+
+
+</script>
+
+</html>
