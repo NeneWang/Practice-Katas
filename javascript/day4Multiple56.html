@@ -50,14 +50,14 @@
         return maximumMultiplier;
     }
 
-    function getSumOfCompound(baseN, startExponent, maxExponent, otherNum) {
+    function getSumOfCompound(baseN, startExponent, maxExponent) {
 
         // It should start with 0
         startExponent = startExponent + 1;
         if (startExponent > maxExponent) {
             return 0;
         }
-        return (baseN * startExponent + getSumOfCompound(baseN, startExponent, maxExponent, otherNum));
+        return (baseN * startExponent + getSumOfCompound(baseN, startExponent, maxExponent));
 
     }
 </script>
