@@ -1,0 +1,31 @@
+<!-- Kata: https://www.codewars.com/kata/52fba66badcd10859f00097e/solutions/javascript -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    vowels = ['a', 'e', 'i', 'o', 'u']
+
+    function disemvowel(str) {
+        strToReturn = "";
+        for (var i = 0; i < str.length; i++) {
+            strToReturn += (vowels.includes(str[i].toLowerCase())  ? "" : str[i]);
+        }
+        return strToReturn;
+    }
+
+    console.log(disemvowel("test hola que SSEEEhacve"));;
+</script>
