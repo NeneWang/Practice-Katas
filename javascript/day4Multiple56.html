@@ -15,10 +15,11 @@
     console.log(solution(20));
     //Rhino 1.7.7.1
     function solution(number) {
-        console.log(` using number: ${number}`)
+        
         if (number < 0) {
             return 0
         }
+        number--;
 
         var maxMult = new Array;
         var inputInteger = new Array;
@@ -27,16 +28,15 @@
         inputInteger.n5 = 5;
         inputInteger.n15 = inputInteger.n5 * inputInteger.n3;
 
-        maxMult.n3 = getNumberBelow(inputInteger.n3, number);
-        maxMult.n5 = getNumberBelow(inputInteger.n5, number);
-        
-        maxMult.n15 = getNumberBelow(inputInteger.n15, number);
+        maxMult.n3 = Math.floor(number/inputInteger.n3)
+        maxMult.n5 = Math.floor(number/inputInteger.n5)
+        maxMult.n15 = Math.floor(number/inputInteger.n15)
 
         // console.log(`max mult: ${maxMult.n3}`);
 
         answer = getSumOfCompound(inputInteger.n3, 0, maxMult.n3) +
          getSumOfCompound(inputInteger.n5, 0, maxMult.n5) -
-         getSumOfCompound(inputInteger.n15, 0, maxMult.n15) ;
+         2*getSumOfCompound(inputInteger.n15, 0, maxMult.n15) ;
         return answer;
 
     }
@@ -57,9 +57,6 @@
         if (startExponent > maxExponent) {
             return 0;
         }
-
-
-        // console.log(`Add this compound: ${baseN * startExponent }`);
         return (baseN * startExponent + getSumOfCompound(baseN, startExponent, maxExponent, otherNum));
 
     }
