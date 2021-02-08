@@ -29,7 +29,13 @@
 
 
     // OTHERS SOL: Using FILTERS
-
+    vowelsString = 'aeiou';
+    function disemvowelFILTER(str){
+        return str
+            .split('')
+            .filter(letter => !vowels.includes(letter.toLowerCase()))
+            .join('')
+    }
 
     // OTHERS SOL: Using str.replace
     function disemvowelREPLACE(str){
@@ -37,8 +43,8 @@
 
     }
     console.log(disemvowel("test hola que SSEEEhacve"));
-    console.log(disemvowelREPLACE("test hola que SSEEEhacve"));;
-
+    console.log(disemvowelREPLACE("test hola que SSEEEhacve"));
+    console.log(disemvowelFILTER("test hola que SSEEEhacve!"));
 
 
 
