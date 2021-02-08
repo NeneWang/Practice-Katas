@@ -12,21 +12,27 @@
 </body>
 
 <script>
-    console.log(solution(10));
+    console.log(solution(20));
     //Rhino 1.7.7.1
     function solution(number) {
+        console.log(` using number: ${number}`)
+        if (number < 0) {
+            return 0
+        }
 
         var maxMult = new Array;
         var inputInteger = new Array;
 
-        inputInteger.n3 = 3; inputInteger.n5 = 5;
+        inputInteger.n3 = 3;
+        inputInteger.n5 = 5;
 
         maxMult.n3 = getNumberBelow(inputInteger.n3, number);
         maxMult.n5 = getNumberBelow(inputInteger.n5, number);
 
-        console.log(`max mult: ${maxMult.n3}`);
+        // console.log(`max mult: ${maxMult.n3}`);
 
-        answer =  getSumOfCompound(inputInteger.n3, 0, maxMult.n3) + getSumOfCompound(inputInteger.n5, 0, maxMult.n5);
+        answer = getSumOfCompound(inputInteger.n3, 0, maxMult.n3, 0) + getSumOfCompound(inputInteger.n5, 0, maxMult.n5,
+            3);
         return answer;
 
     }
@@ -34,13 +40,13 @@
 
     function getNumberBelow(target, maxTarget) {
         var maximumMultiplier = 0;
-        while (target * (maximumMultiplier+1) < maxTarget) {
+        while (target * (maximumMultiplier + 1) < maxTarget) {
             maximumMultiplier++;
         }
         return maximumMultiplier;
     }
 
-    function getSumOfCompound(baseN, startExponent, maxExponent) {
+    function getSumOfCompound(baseN, startExponent, maxExponent, otherNum) {
 
         // It should start with 0
         startExponent = startExponent + 1;
@@ -48,12 +54,16 @@
             return 0;
         }
 
-        console.log(`Add this compound: ${baseN * startExponent }`);
-        return  parseInt(baseN * startExponent + getSumOfCompound(baseN, startExponent, maxExponent));
+        //console.log(`${baseN * startExponent} oth: ${otherNum}`)
+        if (otherNum > 0 && (baseN * startExponent) % otherNum == 0) {
+            console.log(`${baseN * startExponent} is a double`)
+            return getSumOfCompound(baseN, startExponent, maxExponent)
+        }
+
+        // console.log(`Add this compound: ${baseN * startExponent }`);
+        return (baseN * startExponent + getSumOfCompound(baseN, startExponent, maxExponent, otherNum));
 
     }
-
-
 </script>
 
 </html>
