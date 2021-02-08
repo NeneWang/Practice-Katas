@@ -25,14 +25,18 @@
 
         inputInteger.n3 = 3;
         inputInteger.n5 = 5;
+        inputInteger.n15 = inputInteger.n5 * inputInteger.n3;
 
         maxMult.n3 = getNumberBelow(inputInteger.n3, number);
         maxMult.n5 = getNumberBelow(inputInteger.n5, number);
+        
+        maxMult.n15 = getNumberBelow(inputInteger.n15, number);
 
         // console.log(`max mult: ${maxMult.n3}`);
 
-        answer = getSumOfCompound(inputInteger.n3, 0, maxMult.n3, 0) + getSumOfCompound(inputInteger.n5, 0, maxMult.n5,
-            3);
+        answer = getSumOfCompound(inputInteger.n3, 0, maxMult.n3) +
+         getSumOfCompound(inputInteger.n5, 0, maxMult.n5) -
+         getSumOfCompound(inputInteger.n15, 0, maxMult.n15) ;
         return answer;
 
     }
@@ -54,11 +58,6 @@
             return 0;
         }
 
-        //console.log(`${baseN * startExponent} oth: ${otherNum}`)
-        if (otherNum > 0 && (baseN * startExponent) % otherNum == 0) {
-            console.log(`${baseN * startExponent} is a double`)
-            return getSumOfCompound(baseN, startExponent, maxExponent)
-        }
 
         // console.log(`Add this compound: ${baseN * startExponent }`);
         return (baseN * startExponent + getSumOfCompound(baseN, startExponent, maxExponent, otherNum));
