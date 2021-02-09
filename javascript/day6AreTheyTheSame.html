@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    function comp(array1, array2) {
+        //your code here
+        var array1Squared = array1.map(x => x**2);
+        var differenceArray = array2.filter(element => !array1Squared.includes(element))
+        console.log( `${array1Squared}: difference lenght ${array1Squared.length} ${array2.length} `);
+
+        return differenceArray.length > 0 ? false : true;
+
+    }
+
+
+    a1 = [121, 144, 19, 161, 19, 144, 19, 11]  ;
+    a2 = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
+    console.log(comp(a1, a2));
+</script>
