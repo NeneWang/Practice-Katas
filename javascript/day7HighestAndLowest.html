@@ -1,27 +1,21 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-</body>
 
 <script>
     function highAndLow(numbers) {
-
-        var maxInt = numbers[0],
+        var arrayNumbers =  numbers.split(" ");
+        var maxInt = arrayNumbers[0],
             minInt = maxInt;
-        numbers.split(" ").forEach(element => {
-            if (element > maxInt) {
-                maxInt = element;
+            arrayNumbers.forEach(element => {
+            console.log(`${maxInt} ${minInt} ${element} `)
+            elementInt = parseInt(element)
+            if (elementInt > maxInt) {
+                maxInt = elementInt;
             }
-            if (element < maxInt) {
-                minInt = element;
+            if (elementInt < minInt) {
+                minInt = elementInt;
             }
         })
         return `${maxInt} ${minInt}`;
@@ -31,6 +25,9 @@
 
     console.log(highAndLow("1 9 3 4 -5"));
     console.log(highAndLow("1 2 3 4 5"));
+    console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+
+    
 </script>
 
 </html>
