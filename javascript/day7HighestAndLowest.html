@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    function highAndLow(numbers) {
+
+        var maxInt = numbers[0],
+            minInt = maxInt;
+        numbers.split(" ").forEach(element => {
+            if (element > maxInt) {
+                maxInt = element;
+            }
+            if (element < maxInt) {
+                minInt = element;
+            }
+        })
+        return `${maxInt} ${minInt}`;
+
+    }
+
+
+    console.log(highAndLow("1 9 3 4 -5"));
+    console.log(highAndLow("1 2 3 4 5"));
+</script>
+
+</html>
