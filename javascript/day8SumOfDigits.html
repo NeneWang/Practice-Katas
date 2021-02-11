@@ -4,17 +4,12 @@
 
 
 <script>
-    test = [1, 3, 4];
-
-    (test.reduce((a, v) => a + v));
-
     function digital_root(n) {
-        return n.toString().length > 1 ?  digital_root( [...`${n}`].map(Number).reduce((a, v) => a + v)): n;
-
+        return `${n}`.length > 1 ? digital_root([...`${n}`].map(Number).reduce((a, v) => a + v)):n;
     }
+
+
     console.log(digital_root(456));
-
-
 </script>
 
 </html>
