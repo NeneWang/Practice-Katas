@@ -5,10 +5,12 @@
 
 <script>
     function squareDigits(num) {
-        return [...`${num}`].map(Number).map(x => x ** 2).join('')
-
+        return parseInt([...`${num}`].map(Number).map(x => x ** 2).join(''))
     }
 
+
+    // A true one liner over here
+    const squareDigits2 = num => parseInt(String(num).split('').map(x => parseInt(x)**2).reduce((a, x) => a + String(x)))
 
     console.log(squareDigits(9119));
 </script>
