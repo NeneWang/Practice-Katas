@@ -13,8 +13,11 @@
 
     // Solving with Set:
 
-    const isIsogramWithSet = str => new Set(str.toUpperCase()).size
-     == str.length;
+    const isIsogramWithSet = str => new Set(str.toUpperCase()).size ==
+        str.length;
+
+    //  Solving using Regex
+    const isIsogramRegex = (str) => !/(\w).*\1/i.test(str);
 
     arrStr = ['Dermatoglyphics', 'isogram', 'aba']
     arrStr.forEach(element => {
@@ -25,6 +28,11 @@
     arrStr.forEach(element => {
 
         console.log(isIsogramWithSet(element));
+    })
+
+    arrStr.forEach(element => {
+
+        console.log(isIsogramRegex(element));
     })
 </script>
 
