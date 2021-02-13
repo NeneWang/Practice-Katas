@@ -1,0 +1,15 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    function digital_root(n) {
+        return `${n}`.length > 1 ? digital_root([...`${n}`].map(Number).reduce((a, v) => a + v)):n;
+    }
+
+
+    console.log(digital_root(456));
+</script>
+
+</html>
