@@ -6,15 +6,25 @@
 <script>
     function isIsogram(str) {
         hashLetterTable = new Array();
-        return [...str].map(s => s.toLowerCase()).every(element => 
+        return [...str].map(s => s.toLowerCase()).every(element =>
             hashLetterTable[element] = !hashLetterTable[element]
         );
     }
+
+    // Solving with Set:
+
+    const isIsogramWithSet = str => new Set(str.toUpperCase()).size
+     == str.length;
 
     arrStr = ['Dermatoglyphics', 'isogram', 'aba']
     arrStr.forEach(element => {
 
         console.log(isIsogram(element));
+    })
+
+    arrStr.forEach(element => {
+
+        console.log(isIsogramWithSet(element));
     })
 </script>
 
