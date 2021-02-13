@@ -8,11 +8,9 @@
         hashLetterTable = new Array();
         return [...str].every(element => {
             if (hashLetterTable[element]) {
-                console.log(`False: ${element}`);
                 return false;
             } else {
                 hashLetterTable[element] = true;
-                console.log(`True: ${element}`);
                 return true
             }
 
