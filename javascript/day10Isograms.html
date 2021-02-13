@@ -6,7 +6,7 @@
 <script>
     function isIsogram(str) {
         hashLetterTable = new Array();
-        return [...str].every(element => {
+        return [...str].map(s => s.toLowerCase()).every(element => {
             if (hashLetterTable[element]) {
                 return false;
             } else {
