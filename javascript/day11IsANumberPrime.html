@@ -1,0 +1,29 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    function isPrime(num) {
+        function isPrime(num) {
+            if (num <= 1) {
+                return false;
+            }
+            for (var i = 2; i < num; i++) {
+                if (num % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+
+    arrStr = [1, 2, 30, 33, 34, 37, -23]
+    arrStr.forEach(element => {
+
+        console.log(isPrime(element));
+    })
+</script>
+
+</html>
