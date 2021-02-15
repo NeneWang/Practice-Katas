@@ -50,7 +50,7 @@
     }
 
     // The smart guy answer using reduce and taking advantage of the lenght
-    function isValidWalk(walk) {
+    function isValidWalkSmart(walk) {
         return walk.length == 10 && !walk.reduce(function (w, step) {
             return w + {
                 "n": -1,
@@ -68,7 +68,7 @@
     ]
     arrStr.forEach(element => {
 
-        console.log(isValidWalk(element));
+        console.log(isValidWalkSmart(element));
     })
 </script>
 
