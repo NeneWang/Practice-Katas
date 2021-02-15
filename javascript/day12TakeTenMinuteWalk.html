@@ -1,0 +1,63 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    class coordinates {
+
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        walk(letter) {
+            switch (letter.toLowerCase()) {
+                case "n":
+                    this.y++;
+                    break;
+                case "s":
+                    this.y--;
+                    break;
+                case "w":
+                    this.x++;
+                    break;
+                case "e":
+                    this.x--;
+                    break;
+            }
+        }
+
+        isInOrigin() {
+            return Math.abs(this.x) + Math.abs(this.y) == 0 ? true : false;
+        }
+    }
+
+    function isValidWalk(walk) {
+        const MINUTES = 10;
+        myCoordinates = new coordinates(0, 0);
+
+        if (walk.length != MINUTES) {
+            return false;
+        }
+
+        walk.forEach((direction) => {
+            myCoordinates.walk(direction)
+        })
+
+        return (myCoordinates.isInOrigin());
+
+    }
+
+    arrStr = [
+        ['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'],
+        ['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e'],
+        ['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's']
+    ]
+    arrStr.forEach(element => {
+
+        console.log(isValidWalk(element));
+    })
+</script>
+
+</html>
