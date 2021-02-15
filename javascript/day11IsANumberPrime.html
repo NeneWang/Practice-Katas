@@ -4,6 +4,7 @@
 
 
 <script>
+    // Using the 6k+-1 theory
     function isPrime(num) {
         if (num <= 1) {
             return false;
@@ -22,6 +23,16 @@
 
         return true;
 
+    }
+
+    // Using Math.sqrtS
+    function isPrimeOptimized(num) {
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return num > 1
     }
 
     arrStr = [1, 2, 30, 33, 34, 37, -23]
