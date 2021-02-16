@@ -11,9 +11,24 @@
         })
     }
 
-    const reverse2 = (str) =>  [...`${str}`].reverse().join('')
-    
+    const reverse2 = (str) => [...`${str}`].reverse().join('')
+    const combineAndSort = (...args) => args.reduce((a, v) => v != null ? [...a, ...v].sort() : [...a])
 
+
+    const arr1 = ["se", 's', 'a']
+    const arr2 = ["a", 'b', 'c']
+    const arr3 = null;
+    const arr4 = [];
+    const arr5 = [null, 'defined'];
+
+    console.log(combineAndSort(arr1, arr2)[0])
+
+
+    console.log(combineAndSort(arr1, arr2, arr2))
+    console.log(combineAndSort(arr1, arr2, arr4))
+    console.log(combineAndSort(arr1, arr2, arr3))
+    
+    console.log(combineAndSort(arr1, arr2, arr5))
 
     console.log(reverse("hello"))
 
