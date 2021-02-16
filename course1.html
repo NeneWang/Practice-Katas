@@ -4,17 +4,15 @@
 
 
 <script>
-
-function reverse(str) {
-  let len = str.length;
-  return [...`${str}`].reduce(function(str, value){
-    return value+str;
-  }
-  )
-}
+    function reverse(str) {
+        let len = str.length;
+        return [...`${str}`].reduce(function (str, value) {
+            return value + str;
+        })
+    }
 
 
-console.log(reverse("hello"))
+    console.log(reverse("hello"))
 </script>
 
 </html>
