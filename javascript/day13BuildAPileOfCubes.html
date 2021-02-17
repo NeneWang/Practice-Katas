@@ -1,0 +1,15 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    function findNb(m, n = 0, accumulated = 0) {
+        return accumulated == m ? n : accumulated > m ? -1 : findNb(m, ++n, accumulated += n ** 3);
+    }
+
+
+    console.log(findNb(4183059834009))
+</script>
+
+</html>
