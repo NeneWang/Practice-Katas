@@ -48,7 +48,7 @@
 
         add(key, value) {
             const hash = this.calculateHash(key);
-            if(!this.values.hasOwnProperty(hash)){
+            if (!this.values.hasOwnProperty(hash)) {
                 this.values[hash] = {};
             }
             if (!this.values[hash].hasOwnProperty(key)) {
@@ -71,11 +71,11 @@
     myArr = [1, 2, 2, 3, 4, 1, 1];
 
     myArr2 = [1, 2, 3, 4, 2, 6];
-    
+
     myArr3 = [1, 2, 3, 4, 6];
 
     function getRepeatedCharacter(myArr = new Array()) {
-        mySet = new HashTable(100);
+        mySet = new HashTable();
         for (let i = 0; i < myArr.length; i++) {
             if (mySet.search(myArr[i])) {
                 return myArr[i];
@@ -87,9 +87,27 @@
 
     }
 
-    console.log(getRepeatedCharacter(myArr))
-    console.log(getRepeatedCharacter(myArr2))
-    console.log(getRepeatedCharacter(myArr3))
+
+    function repeatedUsingMap(myArr) {
+        let mySet = {} 
+        for (let i = 0; i < myArr.length; i++) {
+            if (mySet[myArr[i]]) {
+                return myArr[i];
+            }
+            mySet[myArr[i]] = true;
+
+        }
+        return false;
+
+    }
+
+    console.log(repeatedUsingMap(myArr))
+    console.log(repeatedUsingMap(myArr2))
+    console.log(repeatedUsingMap(myArr3))
+
+    console.log(repeatedUsingMap(myArr))
+    console.log(repeatedUsingMap(myArr2))
+    console.log(repeatedUsingMap(myArr3))
 </script>
 
 </html>
