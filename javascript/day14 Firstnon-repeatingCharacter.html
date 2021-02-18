@@ -5,18 +5,14 @@
 
 <script>
     function firstNonRepeatingLetter(s) {
-
-        let map = {};
-        [...s].map(letter =>
-            map[letter] = true
-        )
-
-        return [...s].filter(letter =>
-            map[letter])[0];
-
+        const answ = [...s].filter(e => countSimilar(e, [...s]) <= 1)[0];
+        return answ != undefined ? answ : "";
     }
 
-    arrStr = ["stress", "moonmen", "a"]
+    const countSimilar = (character, sArray) => sArray.map(s => s.toLowerCase()).reduce((a, v) =>
+        (v == character.toLowerCase() ? a + 1 : a), 0);
+
+    arrStr = ["SttEsst", "moonmSen", "a", ""]
     arrStr.forEach(element => {
 
         console.log(firstNonRepeatingLetter(element));
