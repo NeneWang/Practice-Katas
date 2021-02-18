@@ -1,0 +1,26 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    function firstNonRepeatingLetter(s) {
+
+        let map = {};
+        [...s].map(letter =>
+            map[letter] = true
+        )
+
+        return [...s].filter(letter =>
+            map[letter])[0];
+
+    }
+
+    arrStr = ["stress", "moonmen", "a"]
+    arrStr.forEach(element => {
+
+        console.log(firstNonRepeatingLetter(element));
+    })
+</script>
+
+</html>
