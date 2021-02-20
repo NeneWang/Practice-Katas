@@ -4,13 +4,8 @@
 
 
 <script>
-    function alphabetPosition(text) {
-        const charCodeA = 'a'.charCodeAt(0)
-        var strToReturn = [];
-
-        text.split("").forEach(letter => strToReturn.push(letter.toLowerCase().charCodeAt(0) - charCodeA + 1))
-        return strToReturn.filter(s => s >= 0 && s <= 26).join(" ")
-    }
+    const alphabetPosition = (text) => text.split("").map(letter => letter.toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0) + 1).filter(s => s > 0 && s <= 26).join(" ")
+    
 
     arrStr = ["BThe sunset sets at twelve o' clock.", "The narwhal bacons at midnight.", "a", "h{-05y.;"]
     arrStr.forEach(element => {
