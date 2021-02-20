@@ -1,0 +1,22 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    function alphabetPosition(text) {
+        const charCodeA = 'a'.charCodeAt(0)
+        var strToReturn = [];
+
+        text.split("").forEach(letter =>strToReturn.push(letter.toLowerCase().charCodeAt(0) - charCodeA + 1))
+        return strToReturn.filter(s => s > 0).join(" ")
+    }
+
+    arrStr = ["BThe sunset sets at twelve o' clock.", "The narwhal bacons at midnight.", "a", " "]
+    arrStr.forEach(element => {
+
+        console.log(alphabetPosition(element));
+    })
+</script>
+
+</html>
