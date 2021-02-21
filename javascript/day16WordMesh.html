@@ -1,0 +1,74 @@
+<!-- Kata: https://www.codewars.com/kata/554b4ac871d6813a03000035/train/javascript -->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    function wordMesh(arr) {
+console.log(arr);
+        // Your code here.
+        var resultArr = [];
+        for (let indexArr = 0; indexArr < arr.length - 1; indexArr++) {
+            arrWord = [...arr[indexArr]];
+            arrNext = [...arr[indexArr + 1]];
+            wordLen =arrWord.length;
+            foundIndex = 0
+            // console.log(` ord: ${arrWord} next: ${arrNext} `)
+            for (let i = 1; i < wordLen + 1; i++) {
+                if (isFirstSame(arrWord, i, arrNext)) {
+                    console.log(` i: ${i} word: ${arrWord} next: ${arrNext} `)
+                    foundIndex = i;
+                }
+            }
+            if(foundIndex>0){
+                
+                resultArr.push(...[...arrWord].splice(wordLen-foundIndex, wordLen))
+            }else{
+                console.log(resultArr.join(""));
+                return "failed to mesh"; 
+            }
+
+        }
+        return resultArr.join("");
+    }
+
+
+
+    function isFirstSame(arrWord, index, nextWord) {
+        const arrLen = arrWord.length;
+        let compar = 0 ;
+        for (let i = 0; i < index; i++) {
+
+            compar = (arrLen) - (index - i);
+            
+            console.log(` i: ${index} word: ${arrWord} next: ${arrNext} `)
+            if (arrWord[compar] != nextWord[i]) {
+                console.log(`Failed at ${arrWord[compar]} with index: ${index} from `)
+                return false;
+            }
+        }
+        console.log("Matched");
+        return true;
+    }
+
+
+    arrStr = [
+        ['venture',
+            'retreat',
+            'eatery',
+            'rye',
+            'yearly',
+            'lymphoma',
+            'homage',
+            'agent',
+            'entrails'
+        ]
+    ]
+    arrStr.forEach(element => {
+
+        console.log(wordMesh(element));
+    })
+
+</script>
+
+</html>
