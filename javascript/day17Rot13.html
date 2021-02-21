@@ -1,0 +1,26 @@
+<!-- Kata: https://www.codewars.com/kata/530e15517bc88ac656000716/train/javascript-->
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+    function rot13(message) {
+        return [...message].reduce((a, v) => {
+            return a + (v.match(/[a-z]/i) ? String.fromCharCode(getNormal(v.charCodeAt(0))) : v);
+        }, "")
+    }
+
+    function getNormal(charTarget) {
+        acc = charTarget + 13;
+        return (acc > 90 && acc < 97 + 1 || acc > 122) ? acc - 26: acc;
+    }
+
+
+    arrStr = ['test!', 'Test !']
+    arrStr.forEach(element => {
+
+        console.log(rot13(element));
+    })
+</script>
+
+</html>
