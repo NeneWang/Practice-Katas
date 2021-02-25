@@ -5,14 +5,22 @@
 
 <script>
     function rot13(message) {
+        const getNormal = (charTarget) => {
+            acc = charTarget + 13;
+            return (acc > 90 && acc < 97 + 1 || acc > 122) ? acc - 26 : acc;
+        }
+
         return [...message].reduce((a, v) => {
             return a + (v.match(/[a-z]/i) ? String.fromCharCode(getNormal(v.charCodeAt(0))) : v);
         }, "")
     }
 
-    function getNormal(charTarget) {
-        acc = charTarget + 13;
-        return (acc > 90 && acc < 97 + 1 || acc > 122) ? acc - 26: acc;
+
+    // This is actually more efficient
+    function rot13AB(message) {
+        var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+        return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
     }
 
 
