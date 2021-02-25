@@ -12,13 +12,15 @@ public class D18 {
     public static int getCount(String str) {
         int vowelsCount = 0;
 
-        ArrayList<String> vowels = new ArrayList<>(Arrays.asList("A", "E", "I", "O", "U", "a", "e", "i", "o", "u"));
+        ArrayList<String> vowels = 
+        		new ArrayList<>(Arrays.asList("A", "E", "I", "O", "U", "a", "e", "i", "o", "u"));
         ArrayList<String> retainedVowels = new ArrayList<>(Arrays.asList(str.split("")));
-        // your code here
-        System.out.println(retainedVowels);
         retainedVowels.retainAll(vowels);
 
-        System.out.println(retainedVowels);
         return retainedVowels.size();
       }
+    
+    public static int getCountReplaceAll(String str) {
+        return str.replaceAll("(?i)[^aeiou]", "").length();
+    }
 }
