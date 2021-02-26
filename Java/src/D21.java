@@ -15,5 +15,9 @@ public class D21 {
 
 		return sum;
 	}
+	
+    public static int sumUsingStream(int[] arr){
+        return Arrays.stream(arr).filter(v -> v > 0).sum();
+    }
 
 }
