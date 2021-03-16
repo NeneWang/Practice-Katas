@@ -15,17 +15,25 @@ public class D23 {
 	public static long overTheRoad(long address, long n) {
 		long answer, k;
 		if (address % 2 == 0) {
-			k = (address-2*n)/(-2);
-			answer = 1 + 2*k;
+			k = (address - 2 * n) / (-2);
+			answer = 1 + 2 * k;
 		} else {
 			k = (address - 1) / 2;
-			answer = n*2- (2 * k);
+			answer = n * 2 - (2 * k);
 		}
 		return answer;
 	}
-	
+
 	public static long shortedOverTheRoad(long address, long n) {
-		return address%2==0?1 + 2*((address-2*n)/(-2)): (n*2- (2 * (address - 1) / 2));
+		return address % 2 == 0 ? 1 + 2 * ((address - 2 * n) / (-2)) : (n * 2 - (2 * (address - 1) / 2));
+	}
+
+	public int sumNumsBetween(int n1, int n2) {
+		int sum = 0;
+		for (int i = n1; i <= 1; i++) {
+			sum += 1;
+		}
+		return sum;
 	}
 
 }
